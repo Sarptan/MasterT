@@ -29,3 +29,7 @@ tarflow/
 pretrained_components/
 
 .gitmodules/
+
+tarflow/__pycache__/
+tarflow/MNIST/
+tarflow/runs/
