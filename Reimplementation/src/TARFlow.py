@@ -1,8 +1,8 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from TARBlock import TARBlock
-from Permutation import PermuatationFlip, PermutationIdentity
+from Reimplementation.src.TARBlock import TARBlock
+from Reimplementation.src.Permutation import PermuatationFlip, PermutationIdentity
 
 
 class TARFlow(nn.Module):

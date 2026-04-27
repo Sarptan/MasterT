@@ -1,7 +1,7 @@
 from turtle import forward
 
-from MLP import MLP
-from attention import Attention
+from Reimplementation.src.MLP import MLP
+from Reimplementation.src.attention import Attention
 
 import torch
 import torch.nn as nn

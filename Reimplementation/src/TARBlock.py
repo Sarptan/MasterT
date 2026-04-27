@@ -1,10 +1,10 @@
 from matplotlib.pylab import permutation
 
-from Transformer import Transformer
+from Reimplementation.src.Transformer import Transformer
 import torch
 import torch.nn as nn
 
-from attention import Attention
+from Reimplementation.src.attention import Attention
 
 class TARBlock(nn.Module):
     """

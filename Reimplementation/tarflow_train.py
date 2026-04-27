@@ -11,7 +11,7 @@ import math
 import os
 import pathlib
 
-from TARFlow import TARFlow
+from Reimplementation.src.TARFlow import TARFlow
 
 @dataclasses.dataclass
 class TrainConfig:

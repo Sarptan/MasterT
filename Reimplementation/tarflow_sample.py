@@ -128,12 +128,15 @@ class Sampler:
         )
         return self._postprocess(images)
 
-    def sample_denoised(self, n, labels=None, guidance=None, noise_std=None, steps=None):
+    def sample_denoised(self, n, labels=None, guidance=None, noise_std=None, steps=None, annealed=None):
         labels_t  = self._make_labels(labels)
         noise     = self._make_noise(n)
         g         = guidance  if guidance  is not None else self.cfg.guidance
         sigma     = noise_std if noise_std is not None else self.cfg.noise_std
         n_steps   = steps     if steps     is not None else self.cfg.denoise_steps
+
+        # Allow overriding annealed_guidance per call
+        use_annealed = annealed if annealed is not None else self.cfg.annealed_guidance
  
         # Step 1: reverse flow → raw noisy sample
         raw = self._reverse(

@@ -30,6 +30,10 @@ tarflow/
 
 .gitmodules/
 
-tarflow/__pycache__/
-tarflow/MNIST/
-tarflow/runs/
+Reimplementation/__pycache__/
+Reimplementation/runs/
+Reimplementation/runs_fmnist/
+Reimplementation/data/
+
+Pretrained Modules/
+

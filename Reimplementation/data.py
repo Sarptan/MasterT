@@ -55,3 +55,39 @@ def get_mnist_loaders(cfg):
         pin_memory  = True,
     )
     return train_loader, val_loader
+
+
+def get_fmnist_loaders(cfg):
+    """
+    Fashion-MNIST: 28×28 greyscale, 60,000 training / 10,000 test.
+    10 classes: T-shirt, Trouser, Pullover, Dress, Coat,
+                Sandal, Shirt, Sneaker, Bag, Ankle boot.
+    Preprocessing identical to MNIST — centre values to [-1, 1].
+    """
+    transform = T.Compose([
+        T.Resize(cfg.img_size),
+        T.ToTensor(),
+        T.Normalize(mean=[0.5], std=[0.5]),
+    ])
+    train_dataset = torchvision.datasets.FashionMNIST(
+        cfg.data_dir, train=True,  download=True, transform=transform
+    )
+    val_dataset = torchvision.datasets.FashionMNIST(
+        cfg.data_dir, train=False, download=True, transform=transform
+    )
+    train_loader = DataLoader(
+        train_dataset,
+        batch_size  = cfg.batch_size,
+        shuffle     = True,
+        num_workers = 2,
+        pin_memory  = True,
+        drop_last   = True,
+    )
+    val_loader = DataLoader(
+        val_dataset,
+        batch_size  = cfg.batch_size,
+        shuffle     = False,
+        num_workers = 2,
+        pin_memory  = True,
+    )
+    return train_loader, val_loader
